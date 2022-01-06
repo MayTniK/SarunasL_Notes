@@ -1,6 +1,10 @@
 package lt.vcs.sarunasl;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -11,6 +15,8 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "list_view";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +37,15 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.listView);
 
         listView.setAdapter(arrayAdapter);
+
+        AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println(" Item position " + position);
+                Log.i(TAG, "onItemClick: " + position);
+            }
+        } ;
+        listView.setOnItemClickListener(listener);
+
     }
 }
