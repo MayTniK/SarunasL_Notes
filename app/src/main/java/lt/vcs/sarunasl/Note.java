@@ -50,4 +50,13 @@ public class Note {
     public void setUpdateDate(LocalDateTime updateDate) {
         this.updateDate = updateDate;
     }
+
+    @Override
+    public String toString() {
+        return  "id= " + id +
+                ", name= '" + name + '\'' +
+                ", content= '" + content + '\'' +
+                ", creationDate= " + creationDate +
+                ", updateDate= " + updateDate;
+    }
 }
